@@ -1,0 +1,39 @@
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+@media (max-width: 1025px) {
+  .h-custom-2 {
+    height: 100%;
+  }
+  // img{display: none;}
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 80%;
+}
+
+.activation {
+  margin-left: 9vh;
+  margin-bottom: 3vh;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.form-outline {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.btn {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}

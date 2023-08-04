@@ -1,0 +1,17 @@
+<div style="width: 60vw; height: 25vw; margin: 50px auto" *ngIf="!start">
+  <h1><p>Félicitations, Vous avez été affecté à Talan Academy !</p></h1>
+  <h1>
+    <p>
+      Il reste <b> {{ nbrJour }} Jours</b> pour que le cursus commence
+    </p>
+  </h1>
+</div>
+
+<div style="width: 60vw; height: 25vw; margin: 50px auto" *ngIf="start">
+  <h1>
+    <p>
+      Félicitations, Vous avez commencé le cursus
+      <b>{{ user.session.cursus.name }} </b> de Talan Academy !
+    </p>
+  </h1>
+</div>

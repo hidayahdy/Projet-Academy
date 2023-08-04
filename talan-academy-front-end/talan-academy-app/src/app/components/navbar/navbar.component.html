@@ -1,0 +1,63 @@
+<mat-toolbar>
+  <div style="width: 17%; margin-left: -21px">
+    <div class="div_img"></div>
+  </div>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="sidenav.toggle()"
+    fxShow="true"
+    fxHide.gt-sm
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div fxShow="true" fxHide.lt-md>
+    <div class="menu">
+      <a href="#cursus" mat-button>Nos Cursus</a>
+    </div>
+  </div>
+  <span class="example-spacer"></span>
+  <a href="/login" mat-button *ngIf="!isLoggedIn">Connexion</a>
+  <a href="/register" mat-button *ngIf="!isLoggedIn">Postuler</a>
+
+  <button
+    mat-mini-fab
+    color="primary"
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon button with a menu icon"
+    *ngIf="isLoggedIn"
+  >
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dashboard</mat-icon>
+      <span>
+        <a href="/admin" *ngIf="role === 'ROLE_ADMIN'"> Mon Dashbord </a>
+        <a href="/apprenti" *ngIf="role === 'ROLE_STUDENT'"> Mon Dashbord </a>
+        <a href="/candidat" *ngIf="role === 'ROLE_REGISTRED'"> Mon Dashbord </a>
+      </span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>close</mat-icon>
+      <span>Déconnexion</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a href="#" mat-list-item>Nos Cursus</a>
+      <a href="#" mat-list-item>Admission</a>
+      <a href="/login" mat-list-item *ngIf="!isLoggedIn">Connexion</a>
+      <a href="/register" mat-list-item *ngIf="!isLoggedIn">Postuler</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <app-introduction></app-introduction>
+    <app-description></app-description>
+    <app-section-cursus-home></app-section-cursus-home>
+  </mat-sidenav-content>
+</mat-sidenav-container>

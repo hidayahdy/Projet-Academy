@@ -1,0 +1,84 @@
+<mat-toolbar>
+  <div style="width: 17%; margin-left: -21px">
+    <div class="div_img"></div>
+  </div>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="sidenav.toggle()"
+    *ngIf="show"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div fxShow="true" fxHide.lt-md>
+    <div class="menu">
+      <div fxShow="true" fxHide.lt-md>
+        <div class="menu">
+          <a
+            [routerLink]="['/admin/cursus']"
+            mat-button
+            *ngIf="role === 'ROLE_ADMIN'"
+            >Cursus</a
+          >
+          <a
+            [routerLink]="['/candidat/applications']"
+            mat-button
+            *ngIf="role === 'ROLE_REGISTRED'"
+            >Mes Candidatures</a
+          >
+          <a
+            [routerLink]="['/apprenti/cursus/1']"
+            mat-button
+            *ngIf="role === 'ROLE_STUDENT'"
+            >Mes Cours</a
+          >
+          <a
+            [routerLink]="['/admin/applications']"
+            mat-button
+            *ngIf="role === 'ROLE_ADMIN'"
+            >Candidatures</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="example-spacer"></span>
+  <button
+    mat-mini-fab
+    color="primary"
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon button with a menu icon"
+  >
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dashboard</mat-icon>
+      <span><a>Mon Profil</a></span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>close</mat-icon>
+      <span>Déconnexion</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    class="example-sidenav"
+    opened
+    [fixedInViewport]="options.value.fixed"
+    [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [fixedInViewport]="false"
+    fixedTopGap="56"
+  >
+    <app-tree-mobile></app-tree-mobile>
+    <app-sidenav-student *ngIf="show && list"></app-sidenav-student>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

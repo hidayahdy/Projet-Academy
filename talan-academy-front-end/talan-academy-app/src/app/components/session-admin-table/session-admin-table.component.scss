@@ -1,0 +1,43 @@
+.mat-table {
+  width: 100%;
+}
+
+.mat-cell {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.mat-header-cell {
+  font-weight: 800;
+  color: #000;
+  font-size: 0.8rem;
+}
+
+.add-cursus-icon {
+  height: 42.5px;
+  width: 42.5px;
+  font-size: 42.5px;
+  cursor: pointer;
+  color: #006dbf;
+  border-radius: 0;
+  border: none;
+  margin: 0.25rem;
+}
+
+.mat-column-actions {
+  width: 4vw;
+}
+.delete-btn {
+  margin-right: 50px !important;
+  color: rgb(255, 0, 0) !important;
+  background-color: #fff;
+  margin-left: 5%;
+  cursor: pointer;
+}
+.calendar {
+  color: #006dbf;
+}
+.date-session {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,27 @@
+.band {
+  border-left: 30px solid green;
+  height: 100%;
+}
+
+.cc {
+  display: flex;
+}
+.school {
+  color: red;
+}
+.container-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: -5%;
+  width: 30px;
+  height: 30px;
+  background-color: yellow;
+}
+.card-title {
+  font-weight: 800;
+}
+.container-date{
+    display: flex;
+}

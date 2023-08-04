@@ -1,0 +1,131 @@
+.get-btn[_ngcontent-cwy-c243] {
+  margin-right: 0px !important;
+  color: rgb(48, 82, 234) !important;
+}
+.cursus-title-page {
+  background-color: #006dbf;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 1% 0 0 2%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 10;
+}
+
+
+.example-table-container {
+  position: relative;
+  min-height: 200px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+
+.mat-cell,
+.mat-header-cell {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+:host {
+  height: 100%;
+
+  mat-sidenav-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-self: center;
+
+    mat-sidenav {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-width: 300px;
+      max-width: 300px;
+      overflow-y: hidden;
+      background: white;
+      padding: 0 6px 0 18px;
+    }
+
+    mat-sidenav-content {
+      display: flex;
+      flex-direction: column;
+      align-content: flex-start;
+      justify-content: flex-start;
+      height: 100%;
+      overflow-y: hidden;
+      background: white;
+
+
+      .table-container {
+        width: 100%;
+      }
+
+      .mat-table {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+
+    }
+
+  }
+}
+
+.mat-paginator {
+  width: 100%;
+  overflow-x: auto;
+  min-width: 570px;
+  margin-right: 2.8em !important;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 100px;
+}
+
+
+@for $index from 0 through 200 {
+  $size: $index * 2;
+
+  .table-column-#{$size} {
+    flex: 0 1 #{$size}#{"px"};
+    min-width: #{$size*3.1}#{"px"};
+    margin-left: 15px;
+
+  }
+}
+
+.span {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.delete-btn {
+  margin-right: 20px !important;
+  color: #fff !important;
+  background-color: rgb(255, 0, 0);
+}
+
+.get-btn {
+  margin-right: 20px !important;
+  color: rgb(48, 82, 234) !important;
+  //background-color: rgb(69, 183, 109);
+}
+
+
+@media screen and (max-width:770px) {
+
+  @for $index from 0 through 200 {
+    $size: $index * 2;
+
+    .table-column-#{$size} {
+      flex: 0 1 #{$size}#{"px"};
+      min-width: #{$size*1.2}#{"px"};
+      margin-left: 15px;
+
+    }
+  }
+}

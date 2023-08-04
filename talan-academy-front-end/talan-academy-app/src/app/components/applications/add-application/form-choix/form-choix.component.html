@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="form-validation">
+      <form
+        class="form-valide p-2"
+        method="post"
+        novalidate
+        [formGroup]="angForm"
+      >
+        <div class="form-row" style="padding-bottom: 1.34375em">
+          <div class="col-sm-7 mx-auto">
+            <section class="example-section">
+              <label
+                style="
+                  margin-left: 4px;
+                  margin-right: 4px;
+                  font-size: 15px;
+                  padding-top: 50px;
+                "
+              >
+                Vous pouvez choisir la session à laquelle vous voulez postuler
+                parmi celles planifiées !
+              </label>
+            </section>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-sm-10 mx-auto" style="padding-bottom: 1.34375em">
+            <mat-radio-group
+              class="example-margin"
+              formControlName="session"
+              color="primary"
+              id="first"
+            >
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: flex-start;
+                  flex-wrap: wrap;
+                "
+              >
+                <mat-card
+                  *ngFor="let session of sessions"
+                  style="
+                  background-image: linear-gradient(
+                      rgba(255, 255, 255, 0.7),
+                      rgba(255, 255, 255, 0.9)
+                    ),
+                    url('http://localhost:8080/talan/cursus/image?pictureName={{session.cursus.picture}}');
+                  background-size: cover;
+                "
+                >
+                  <mat-card-header>
+                    <mat-card-title> {{ session.cursus.name }}</mat-card-title>
+                    <mat-card-subtitle style="margin-bottom: 20px"
+                      >Commence Le {{ session.startDate | date }}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+
+                  <mat-card-actions>
+                    <mat-radio-button
+                      value="{{ session.id }}"
+                    ></mat-radio-button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </mat-radio-group>
+
+            <div
+              *ngIf="
+                angForm.controls['session'].invalid &&
+                (angForm.controls['session'].dirty ||
+                  angForm.controls['session'].touched)
+              "
+              class="text-danger fs-13 mt-1"
+            >
+              <div *ngIf="angForm.controls['session'].errors.required">
+                Champ obligatoire
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

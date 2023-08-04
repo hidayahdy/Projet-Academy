@@ -1,0 +1,22 @@
+<div class="container-fluid" id="cursus">
+  <div class="row">
+    <div>
+      <h1>Nos formations</h1>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="!cursus">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <h1>Il n y'a pas des cursus disponibles en ce moment</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid pb-5" style="margin-bottom: 50px" *ngIf="cursus">
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-5 col-xl-3 m-3" *ngFor="let cur of cursus">
+      <app-card-cursus [cursus]="cur"></app-card-cursus>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<form class="example-form" [formGroup]="cursusForm">
+  <h2 class="title-form">Ajouter un cursus</h2>
+  <mat-form-field class="example-full-width mt-2" appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="name"
+      placeholder="Nom de cursus"
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea
+      type="text"
+      matInput
+      formControlName="description"
+      placeholder="Description de cursus"
+      maxlength="500"
+    ></textarea>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Mots clés, NB: il faut les séparer par des virgules</mat-label>
+    <input type="text" matInput formControlName="keyWords" />
+  </mat-form-field>
+  <mat-form-field class="example-width">
+    <mat-label>Type</mat-label>
+    <mat-select placeholder="Catégorie" [(value)]="type" formControlName="type">
+      <mat-option value="PUBLIC">Public</mat-option>
+      <mat-option value="INTERNE">Interne</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <span
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      "
+    >
+      <mat-label class="image-label">Image</mat-label>
+      <div
+        class="my-2"
+        style="align-items: center; display: flex; flex-wrap: wrap"
+      >
+        <mat-icon class="px-2" style="width: 40px" (click)="fileInput.click()"
+          >cloud_upload</mat-icon
+        >
+        {{ cursusForm.value.file.name }}
+        <input matInput disabled />
+        <input
+          type="file"
+          accept="image/*"
+          #fileInput
+          form
+          id="fileInput"
+          hidden
+          (change)="onSelectFile($event)"
+        />
+        <input type="hidden" name="" formControlName="file" />
+        <p
+          *ngIf="cursusForm.value.file == 0 && buttonClicked"
+          class="text-danger"
+        >
+          Photo obligatoire
+        </p>
+      </div></span
+    >
+  </mat-form-field>
+  <button type="submit" class="btn mb-3 btn-add" (click)="onSubmitForm()">
+    Ajouter
+  </button>
+</form>

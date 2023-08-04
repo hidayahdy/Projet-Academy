@@ -1,0 +1,183 @@
+<section class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 text-black">
+        <div class="card-body p-md-3 mx-md-4">
+          <div class="text-center">
+            <a href="">
+              <img
+                src="../../../../assets/images/talanacademy.png"
+                style="width: 300px"
+                alt="logo"
+            /></a>
+          </div>
+
+          <form
+            #formRef
+            [formGroup]="registerForm"
+            #formDirective="ngForm"
+            (ngSubmit)="register(formDirective)"
+          >
+            <br />
+            <h2 class="d-flex justify-content-center pb-4">Inscrivez-vous</h2>
+            <div class="form-outline mb-3">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="nom"
+                  formControlName="firstName"
+                />
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['firstName'].hasError('pattern')
+                  "
+                >
+                  Entrer votre nom
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['firstName'].hasError('required')
+                  "
+                >
+                  Entrer votre nom
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-outline mb-3">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Prénom</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="nom"
+                  formControlName="lastName"
+                />
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['lastName'].hasError('pattern')
+                  "
+                >
+                  Entrer votre prénom
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['lastName'].hasError('required')
+                  "
+                >
+                  Entrer votre prénom
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-outline mb-3">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  placeholder="Ex. pat@example.com"
+                  formControlName="email"
+                />
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['email'].hasError('pattern')
+                  "
+                >
+                  Entrer un email valide
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['email'].hasError('required')
+                  "
+                >
+                  Entrer un email valide
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-outline mb-3">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Mot de passe</mat-label>
+                <input
+                  type="password"
+                  matInput
+                  placeholder="mot de passe"
+                  formControlName="password"
+                />
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['password'].hasError('pattern')
+                  "
+                >
+                  Entrer un mot de passe, au minimum 8 caractères
+                  contenant[A-Z][0-9][/@!?:)]
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['password'].hasError('required')
+                  "
+                >
+                  Entrer un mot de passe, au minimum 8 caractères
+                  contenant[A-Z][0-9][/@!?:)]
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-outline mb-3">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Confirmer mot de passe</mat-label>
+                <input
+                  type="password"
+                  matInput
+                  placeholder="confirmer mot de passe "
+                  formControlName="confirmPass"
+                />
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['password'].hasError('pattern')
+                  "
+                >
+                  Entrer un mot de passe, au minimum 8 caractères
+                  contenant[A-Z][0-9][/@!?:)]
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    this.registerForm.controls['password'].hasError('required')
+                  "
+                >
+                  Entrer un mot de passe, au minimum 8 caractères
+                  contenant[A-Z][0-9][/@!?:)]
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="activation">
+              <h4 style="color: red" *ngIf="activationMsg != null">
+                {{ activationMsg }}
+              </h4>
+              <a href="activation"
+                >Envoyer un email de confirmation de compte
+              </a>
+            </div>
+            <div class="text-center">
+              <button
+                class="btn btn-info btn-lg btn-block"
+                type="submit"
+                [disabled]="!registerForm.valid"
+              >
+                S'inscrire
+              </button>
+            </div>
+            <br />
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-6 px-0 d-none d-lg-block">
+        <img
+          src="../../../../assets/images/IMG_6391.jpg"
+          alt="Login image"
+          class="w-100 vh-100"
+          style="object-fit: cover; object-position: left"
+        />
+      </div>
+    </div>
+  </div>
+</section>

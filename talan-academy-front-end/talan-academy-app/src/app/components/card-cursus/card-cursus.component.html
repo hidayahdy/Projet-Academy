@@ -1,0 +1,30 @@
+<mat-card
+  class="card"
+  style="
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.9)
+      ),
+      url('http://localhost:8080/talan/cursus/image?pictureName={{cursus.picture}}');
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover;
+  "
+>
+  <mat-card-title style="color: rgb(51, 113, 185)">{{
+    cursus.name | titlecase
+  }}</mat-card-title>
+  <mat-card-content
+    ><div class="cursus-description">
+      {{ cursus.description | subDescription }}
+    </div>
+    <div>
+      <div class="tags mt-1" *ngFor="let key of cursus.keyWords">
+        {{ key | titlecase }}
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button (click)="details()">En savoir plus</button>
+  </mat-card-actions>
+</mat-card>

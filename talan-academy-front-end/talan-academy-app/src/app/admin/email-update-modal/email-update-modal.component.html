@@ -1,0 +1,31 @@
+<h2>Réinitialisation de l'email apprenti</h2>
+<form [formGroup]="resetEmailForm">
+  <br />
+  <br />
+
+  <div>
+    <mat-form-field style="width: 450px" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        placeholder="Ex. pat@example.com"
+        formControlName="newEmail"
+      />
+    </mat-form-field>
+  </div>
+
+  <br />
+
+  <br />
+</form>
+<mat-dialog-actions align="end">
+  <button
+    mat-raised-button
+    style="background-color: green; color: white"
+    (click)="resetEmail()"
+  >
+    Envoyer
+  </button>
+  <button mat-raised-button color="primary" mat-dialog-close>Fermer</button>
+</mat-dialog-actions>

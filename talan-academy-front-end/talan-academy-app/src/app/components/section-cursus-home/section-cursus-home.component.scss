@@ -1,0 +1,17 @@
+h1 {
+  font-size: 55px;
+  font-weight: bold;
+  margin-left: 35px;
+  margin-bottom: 50px;
+  margin-top: 80px;
+  color: rgb(51, 113, 185);
+  line-height: 55px;
+}
+.container-fluid {
+  background-color: #e6e6eb;
+}
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 35px;
+  }
+}

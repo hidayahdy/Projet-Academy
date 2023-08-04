@@ -1,0 +1,159 @@
+img {
+  width: 800px;
+  height: 40vh;
+
+  border-style: solid;
+  border-width: thin;
+  border-color: gray;
+}
+
+h1 {
+  color: rgb(51, 113, 185);
+  font-size: 100px;
+}
+
+mat-icon {
+  color: blue;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+}
+
+p {
+  margin-top: 12px;
+
+  color: gray;
+}
+
+.cursus-detail {
+  display: flex;
+  justify-content: space-around;
+}
+.informations {
+  margin-top: 17vh;
+  font-size: large;
+  color: black;
+  background-color: #cdedfa;
+  width: 280px;
+  height: 240px;
+  padding-left: 15px;
+  padding-top: 15px;
+  border-radius: 10px;
+  margin-right: 90px;
+}
+.details {
+  width: 800px;
+
+  margin-top: 17vh;
+}
+
+.name {
+  margin-top: 8vh;
+  font-weight: bold;
+  font-size: 25px;
+}
+.description {
+  font-size: 18px;
+  line-height: 32px;
+  color: gray;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+button {
+  margin-top: 30px;
+  margin-bottom: 70px;
+  margin-left: 635px;
+  width: 20vh;
+  height: 50px;
+  background-color: green;
+  color: white;
+  font-size: large;
+}
+span {
+  background-color: aqua;
+  width: 200px;
+}
+.tags {
+  font-size: 20px;
+  background-color: rgb(227, 225, 225);
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}
+.mots {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 1190px) {
+  img {
+    width: 98%;
+  }
+
+  .informations {
+    width: 30%;
+  }
+
+  button {
+    margin-left: 50%;
+  }
+
+  .description {
+    width: 98%;
+  }
+  .details {
+    margin-left: 8vh;
+  }
+}
+
+@media screen and (max-width: 955px) {
+  .description {
+    font-size: 15px;
+  }
+  .informations {
+    width: 400px;
+  }
+  .informations p {
+    font-size: medium;
+  }
+}
+@media screen and (max-width: 800px) {
+  .informations {
+    width: 400px;
+  }
+  .informations p {
+    font-size: small;
+  }
+}
+@media screen and (max-width: 608px) {
+  .cursus-detail {
+    display: flex;
+  }
+  .informations {
+    height: 300px;
+    width: 400px;
+  }
+}
+@media screen and (max-width: 550px) {
+  mat-icon {
+    display: none;
+  }
+  .informations {
+    margin-right: 0px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .details {
+    width: 95%;
+    margin-right: 50px;
+  }
+  .informations {
+    display: none;
+  }
+  button {
+    margin-left: 30%;
+  }
+}

@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="form-validation">
+      <form class="form-valide" [formGroup]="angForm">
+        <div class="form-row">
+          <div class="col-sm-7 mx-auto">
+            <mat-form-field
+              [style.width.%]="100"
+              appearance="fill"
+              style="padding-top: 1.34375em"
+            >
+              <mat-label>Email</mat-label>
+              <input matInput disabled value="{{ user.email }}" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-sm-7 mx-auto">
+            <mat-form-field [style.width.%]="100" appearance="fill">
+              <mat-label>Nom</mat-label>
+              <input matInput disabled value="{{ user.firstName }}" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-sm-7 mx-auto">
+            <mat-form-field [style.width.%]="100" appearance="fill">
+              <mat-label>Prénom</mat-label>
+              <input matInput disabled value="{{ user.lastName }}" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-sm-7 mx-auto">
+            <mat-form-field
+              class="example-full-width"
+              appearance="fill"
+              [style.width.%]="100"
+            >
+              <mat-label>LinkedIn</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="https://www.linkedin.com/in/....."
+                formControlName="linkedin"
+              />
+              <mat-error
+                *ngIf="this.angForm.controls['linkedin'].hasError('pattern')"
+              >
+                Entrer votre address linkedin
+              </mat-error>
+              <mat-error
+                *ngIf="this.angForm.controls['linkedin'].hasError('required')"
+              >
+                Entrer votre address linkedin
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-sm-7 mx-auto">
+            <mat-form-field
+              class="example-full-width"
+              appearance="fill"
+              [style.width.%]="100"
+            >
+              <mat-label>Téléphone</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder=" - -   - - -   - - -"
+                formControlName="phone"
+              />
+              <mat-error
+                *ngIf="
+                  this.angForm.controls['phone'].hasError('pattern') ||
+                  this.angForm.controls['phone'].hasError('minlength') ||
+                  this.angForm.controls['phone'].hasError('maxlength')
+                "
+              >
+                Entrer un numéro de téléphone valide
+              </mat-error>
+              <mat-error
+                *ngIf="this.angForm.controls['phone'].hasError('required')"
+              >
+                Entrer un numéro de téléphone
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-sm-7 mx-auto">
+            <mat-form-field [style.width.%]="100" appearance="fill">
+              <mat-label>Adresse</mat-label>
+              <mat-select formControlName="address" required>
+                <mat-option>--</mat-option>
+                <mat-option
+                  *ngFor="let speciality of specialities"
+                  [value]="speciality.value"
+                >
+                  {{ speciality.viewValue }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="angForm.controls['address'].errors"
+                >Choisir votre adresse</mat-error
+              >
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

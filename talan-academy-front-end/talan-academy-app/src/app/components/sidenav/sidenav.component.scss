@@ -1,0 +1,30 @@
+.example-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+}
+
+.example-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  justify-content: center;
+  margin-top: 20px;
+  color: rgb(30, 30, 30);
+}

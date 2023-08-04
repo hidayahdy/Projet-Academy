@@ -1,0 +1,135 @@
+<div class="container-fluid">
+  <div class="row px-4 mx-1">
+    <div class="col-12 mx-auto session-title-page mt-3">
+      <h1>Liste des inscrits & apprentis</h1>
+    </div>
+  </div>
+  <div class="ml-5 mt-3 w-50">
+    <mat-form-field>
+      <mat-label>Rechercher</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="filterValue"
+        (input)="findByKeyWord(filterValue)"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="row mx-1" style="margin-top: 3vh; margin-bottom: 4vh">
+    <div class="col-12 col-md-12 mx-auto px-4">
+      <div class="mat-elevation-z8" *ngIf="users?.content">
+        <table mat-table [dataSource]="users.content" matSort>
+          <!-- Name Column -->
+          <ng-container matColumnDef="utilisateur">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Utilisateur
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.firstName }} {{ element.lastName }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+            <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+          </ng-container>
+          <ng-container matColumnDef="statut">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Statut</th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.roles.name == 'ROLE_REGISTRED'">
+                Inscrit</span
+              >
+              <span *ngIf="element.roles.name == 'ROLE_STUDENT'">
+                Apprenti</span
+              >
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="candidature">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Candidature
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngIf="element.roles.name == 'ROLE_STUDENT'"> Oui</span>
+              <span *ngIf="element.roles.name == 'ROLE_REGISTRED'"
+                >{{ checkApplication(element.id) }}
+              </span>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="téléphone">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              class="actions"
+            >
+              Téléphone
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.phone }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="linkedin">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              class="actions"
+            >
+              Linkedin
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.linkedin }}</td>
+          </ng-container>
+          <ng-container matColumnDef="compte">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              class="actions"
+            >
+              Actions
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <mat-icon
+                class="edit"
+                *ngIf="
+                  element.activated == true &&
+                  element.roles.name == 'ROLE_STUDENT'
+                "
+                (click)="openDialog(element.email, element.id)"
+                >mode_edit</mat-icon
+              >
+
+              <mat-icon
+                class="activation"
+                *ngIf="element.activated == false"
+                title="Activer le compte"
+                (click)="changeAccountStatus(element.id)"
+                >account_circle</mat-icon
+              >
+              <mat-icon
+                [ngClass]="{
+                  activation: element.roles.name == 'ROLE_REGISTRED'
+                }"
+                style="color: red"
+                *ngIf="element.activated == true"
+                title="Désactiver le compte"
+                (click)="changeAccountStatus(element.id)"
+                >not_interested</mat-icon
+              >
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <mat-paginator
+          [length]="users.totalElements"
+          [pageSize]="users.size"
+          (page)="pageEvent = $event; onPaginateChange($event)"
+          [pageSizeOptions]="[2, 5, 8, 10, 12, 15]"
+          showFirstLastButtons
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

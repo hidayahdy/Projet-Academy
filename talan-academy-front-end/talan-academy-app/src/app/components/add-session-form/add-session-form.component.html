@@ -1,0 +1,16 @@
+<form class="example-form" [formGroup]="sessionForm">
+  <h2 class="title-form mb-2">Ajouter une session</h2>
+  <mat-form-field class="example-full-width my-3" appearance="fill">
+    <mat-label>Choisir la date de la session</mat-label>
+    <input readonly matInput min="{{currentDate | date:'yyyy-MM-dd'}}" [matDatepicker]="picker" formControlName="date">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Cursus</mat-label>
+    <mat-select placeholder="Cursus" [(value)]="cursus" formControlName="cursus">
+      <mat-option *ngFor="let cursus of listCursusAvailable" value={{cursus.id}}>{{cursus.name |titlecase}}</mat-option> 
+    </mat-select>
+  </mat-form-field>
+  <button type="submit" class="btn mt-5 btn-add" (click)="onSubmitForm()">Ajouter</button>
+</form>

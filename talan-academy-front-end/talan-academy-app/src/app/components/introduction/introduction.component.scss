@@ -1,0 +1,73 @@
+section {
+  background-repeat: no-repeat;
+  min-height: 78vh;
+  background-size: cover;
+
+  padding-top: 78px;
+  background-image: linear-gradient(
+      rgba(251, 248, 248, 0.4),
+      rgba(255, 255, 255, 0.927)
+    ),
+    url("../../../assets/images/thumbnail_IMG_6548.jpg");
+}
+//https://bootstrapmade.com/demo/templates/Mentor/assets/img/about.jpg
+.tofilter {
+  padding-top: 30px;
+  margin-left: 40px;
+}
+h2 {
+  color: rgb(66, 63, 63);
+
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+b {
+  color: rgb(51, 113, 185);
+}
+p {
+  font-size: 80px;
+  line-height: 80px;
+}
+
+button {
+  width: 200px;
+  height: 60px;
+  margin-top: 40px;
+  margin-left: 50px;
+  margin-bottom: 2vh;
+  font-size: larger;
+  border-radius: 20px;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+button b {
+  font-size: large;
+  color: white;
+}
+
+@media screen AND (max-width: 850px) {
+  section {
+    background-size: 99% 100%;
+  }
+}
+@media screen AND (max-width: 785px) {
+  p {
+    font-size: 60px;
+    line-height: 60px;
+  }
+}
+@media screen AND (max-width: 580px) {
+  p {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+}
+@media screen AND (max-width: 560px) {
+}

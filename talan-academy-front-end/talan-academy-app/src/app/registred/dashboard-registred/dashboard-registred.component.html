@@ -1,0 +1,236 @@
+<div class="row px-4 mx-1">
+  <div
+    class="col-12 mx-auto mt-3"
+    style="
+      background-color: #006dbf;
+      text-transform: uppercase !important;
+      color: #fff !important;
+      padding: 1% 0 0 2%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 10;
+    "
+  >
+    <h2
+      style="
+        color: #fff !important;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase !important;
+      "
+    >
+      Mon Dashboard
+    </h2>
+  </div>
+</div>
+<div class="right-side">
+  <div class="right-header">
+    <div class="top-bar">
+      <div class="top-bar-justify"></div>
+    </div>
+
+    <hr class="new-hr" />
+    <div class="right-bottom">
+      <div class="big-inbox">Sessions disponibles :</div>
+      <div class="down-arrow"></div>
+      <div class="middle-buttons"></div>
+    </div>
+  </div>
+
+  <div class="right-body">
+    <div class="scroll-cards">
+      <div *ngIf="Session">
+        <div *ngFor="let el of Session">
+          <div class="card band">
+            <div class="card-body t1">
+              <div class="cc">
+                <span class="container-icon">
+                  <mat-icon class="school">school</mat-icon></span
+                >
+
+                <h2 class="card-title t1">{{ el.cursus.name }}</h2>
+              </div>
+
+              <div class="container-date">
+                <mat-icon class="mr-2 calendar">event_available</mat-icon>
+
+                <p>{{ el.startDate | date: "longDate" }}</p>
+              </div>
+
+              <p class="card-text">
+                {{ el.cursus.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="Session.length === 0">
+          <div *ngFor="let el of Cursus">
+            <div class="card band">
+              <div class="card-body t1">
+                <div class="cc">
+                  <span class="container-icon">
+                    <mat-icon class="school">school</mat-icon></span
+                  >
+
+                  <h2 class="card-title t1">{{ el.name }}</h2>
+                </div>
+
+                <div class="container-date">
+                  <mat-icon class="mr-2 calendar">event_available</mat-icon>
+                  <p>une session ouvrera bientôt</p>
+                </div>
+
+                <p class="card-text">
+                  {{ el.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+
+    <div class="message">
+      <div class="title">
+        <div class="text-center">
+          <a href="">
+            <img
+              src="../../../../assets/images/talanacademy.png"
+              style="width: 250px"
+              alt="logo"
+          /></a>
+        </div>
+
+        <div class="title-icons"></div>
+      </div>
+
+      <div class="message-from">
+        <div class="container">
+          <div class="card">
+            <div class="face face1">
+              <div class="content">
+                <h2 class="java">Qui sommes nous?</h2>
+                <p class="java">
+                  Talan Academy est une école de développement qui dispense des
+                  cursus d’enseignement permettant de booster l’employabilité
+                  des diplômés vers de nouvelles filières.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="face face1">
+              <div class="content">
+                <h2 class="python">
+                  Ingenieur d'une spécialité autre que l'informatique?
+                </h2>
+                <p class="python">
+                  Si vous êtes ingénieur dans une spécialité autre
+                  qu’Informatique, et que vous voulez vous reconvertir vers le
+                  digital et intégrer le groupe Talan, vous êtes éligible pour
+                  déposer votre candidature afin d’intégrer Talan Academy.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="face face1">
+              <div class="content">
+                <h2 class="cSharp">Comment postuler?</h2>
+                <p class="cSharp">
+                  Si vous êtes ingénieur dans une spécialité autre
+                  qu’Informatique, et que vous voulez vous reconvertir vers le
+                  digital et intégrer le groupe Talan, vous êtes éligible pour
+                  déposer votre candidature afin d’intégrer Talan Academy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="heading">
+          <h1 class="heading__title">Informations pratiques :</h1>
+        </div>
+        <div class="cards">
+          <div class="card card-1">
+            <div class="card__icon"><i class="fas fa-bolt"></i></div>
+            <p class="card__exit"><i class="fas fa-times"></i></p>
+            <h2
+              class="card__title"
+              style="
+                background-image: linear-gradient(
+                    rgba(255, 255, 255, 0.7),
+                    rgba(255, 255, 255, 0.9)
+                  ),
+                  url('../../../assets/images/talanacademy.png');
+                width: 100% !important;
+                height: 100% !important;
+                background-size: cover;
+              "
+            >
+              La formation se déroule dans les locaux de Talan Tunisie à plein
+              temps, régie par les règles de TALAN. Vous travaillerez en groupe,
+              au sein d’une la grande communauté TALAN qui englobe les devs, les
+              fondateurs, et bien entendu tous les anciens candidats ! Le but de
+              toute cette communauté est de créer un écosystème bienveillant et
+              où chaque personne n'aura aucune gêne à poser des questions.
+            </h2>
+          </div>
+
+          <div class="cards-list" style="margin-top: 10%">
+            <div class="card1 4">
+              <div class="card_image">
+                <img
+                  src="https://img.freepik.com/psd-premium/groupe-personnes-tenant-tableau-rond-bleu_53876-73062.jpg?w=996"
+                  style="opacity: 50%"
+                />
+              </div>
+              <div class="card_title title-black">
+                <p>Communauté soudée</p>
+              </div>
+            </div>
+
+            <div class="card1 4">
+              <div class="card_image">
+                <img
+                  src="https://img.freepik.com/vecteurs-libre/reseau-social-vecteur-conceptuel_23-2147497252.jpg?w=740&t=st=1669390485~exp=1669391085~hmac=df7ac78214c65fb76d209c36c2420bd274bf17fa48a6123a9755279f270f423e"
+                  style="opacity: 50%"
+                />
+              </div>
+              <div class="card_title title-black">
+                <p>cursus gratuit et qualitatif</p>
+              </div>
+            </div>
+            <div class="card1 4">
+              <div class="card_image">
+                <img
+                  style="opacity: 50%"
+                  src="https://img.freepik.com/vecteurs-premium/analyse-donnees-volumineuses-programmeur-developpeur-travail-equipe-gens-affaires-recherchent-idee-pour-affaires-illustration-vectorielle-coloree_569417-676.jpg?w=996"
+                />
+              </div>
+              <div class="card_title title-black">
+                <p>Pédagogie innovante</p>
+              </div>
+            </div>
+            <div class="card1 4">
+              <div class="card_image">
+                <img
+                  src="https://img.freepik.com/vecteurs-libre/recherche-talents_23-2147983550.jpg?w=740&t=st=1669390678~exp=1669391278~hmac=2621a72d07d312774e723863252b53af2be8db39a43d8dcf176362fceb38cc10"
+                  style="opacity: 50%"
+                />
+              </div>
+              <div class="card_title title-black">
+                <p>Une opportunité pour intégrer le groupe Talan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

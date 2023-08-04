@@ -1,0 +1,135 @@
+<div class="container-xxl">
+  <div class="container-fluid">
+    <div fxFlex="0 0 100%" fxLayout="column" fxLayoutAlign="start stretch">
+      <div class="row px-4 mx-1">
+        <div class="col-12 mx-auto cursus-title-page mt-3">
+          <h2>Mes candidatures</h2>
+        </div>
+      </div>
+
+      <div class="ml-5 mt-3 w-50">
+        <mat-form-field>
+          <mat-label>Filter par mot clé</mat-label>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="filterValue"
+            (input)="findByField(filterValue)"
+          />
+        </mat-form-field>
+      </div>
+
+      <mat-sidenav-container fxFlex="0 1 auto ">
+        <mat-sidenav-content
+          style="margin-left: 2.8em; margin-right: 2.8em !important"
+        >
+          <div class="mat-elevation-z8" *ngIf="dataSource">
+            <div class="table-container">
+              <table mat-table [dataSource]="dataSource.content">
+                <ng-container matColumnDef="Date">
+                  <th
+                    *matHeaderCellDef
+                    class="table-column-100"
+                    style="margin-left: 20px"
+                  >
+                    Date
+                  </th>
+                  <td *matCellDef="let element" class="table-column-100">
+                    {{ element.creationDate | date: " dd/MM/YY " }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Cursus">
+                  <th *matHeaderCellDef class="table-column-100">Cursus</th>
+                  <td *matCellDef="let element" class="table-column-100">
+                    {{ element.session.cursus.name }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Session">
+                  <th *matHeaderCellDef class="table-column-100">Session</th>
+                  <td *matCellDef="let element" class="table-column-100">
+                    {{ element.session.creationDate | date: " dd/MM/YY " }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Statut">
+                  <th *matHeaderCellDef class="table-column-100">Statut</th>
+                  <td *matCellDef="let element" class="table-column-100">
+                    <span class="span" *ngIf="element.status == 'CANCELLED'">
+                      <mat-icon style="color: orange">circle</mat-icon> Annulée
+                    </span>
+                    <span class="span" *ngIf="element.status == 'ACCEPTED'">
+                      <mat-icon style="color: green">circle</mat-icon>Acceptée
+                    </span>
+                    <span class="span" *ngIf="element.status == 'ABANDONED'">
+                      <mat-icon style="color: red">circle</mat-icon>Abandon
+                    </span>
+                    <span class="span" *ngIf="element.status == 'WITHDRAWAL'">
+                      <mat-icon style="color: red">circle</mat-icon>Désistement
+                    </span>
+                    <span class="span" *ngIf="element.status == 'REFUSED'">
+                      <mat-icon style="color: red">circle</mat-icon>Refusée
+                    </span>
+
+                    <span class="span" *ngIf="element.status == 'INPROGRESS'">
+                      <mat-icon style="color: rgb(52, 55, 231)">circle</mat-icon
+                      >En cours d'étude
+                    </span>
+                    <span class="span" *ngIf="element.status == 'NEW'">
+                      <mat-icon style="color: rgb(52, 55, 231)">circle</mat-icon
+                      >A traiter
+                    </span>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Actions">
+                  <th *matHeaderCellDef class="table-column-30">Actions</th>
+                  <td *matCellDef="let element" class="table-column-20">
+                    <div class="row">
+                      <!-- <button mat-icon-button  *ngIf="element.status=='NEW'">
+                        <mat-icon color="primary">create</mat-icon>
+                      </button> -->
+                      <button
+                        mat-icon-button
+                        (click)="concelApplication(element.id)"
+                        *ngIf="
+                          element.status == 'INPROGRESS' ||
+                          element.status == 'NEW'
+                        "
+                      >
+                        <mat-icon style="color: red">cancel</mat-icon>
+                      </button>
+                      <button mat-icon-button>
+                        <mat-icon class="get-btn" (click)="openDialog(element)"
+                          >info</mat-icon
+                        >
+                      </button>
+                    </div>
+                  </td>
+                </ng-container>
+
+                <mat-header-row
+                  *matHeaderRowDef="displayedColumns"
+                ></mat-header-row>
+                <mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></mat-row>
+              </table>
+
+              <mat-paginator
+                *ngIf="dataSource"
+                [length]="dataSource.totalElements"
+                [pageSize]="dataSource.size"
+                (page)="pageEvent = $event; onPaginateChange($event)"
+                [pageSizeOptions]="[2, 5, 10, 15]"
+                showFirstLastButtons
+              >
+              </mat-paginator>
+            </div>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>
+  </div>
+</div>

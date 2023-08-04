@@ -1,0 +1,208 @@
+<app-navbar-section></app-navbar-section>
+
+<div id="cooptation_container" style="margin-top: 20px;">
+  <div class="imgbtn text-center">
+    <img
+      *ngIf="isPicture"
+      src="https://th.bing.com/th/id/OIP.lGcj846yAsYFkM9ljfm30AHaFj?pid=ImgDet&rs=1"
+      style="width: 160px; height: 160px"
+      slot="start"
+    />
+
+    <img
+      *ngIf="!isPicture"
+      src="http://localhost:8080/talan/cursus/image?pictureName={{
+        user.picture
+      }}"
+      style="width: 160px; height: 160px"
+      slot="start"
+    />
+
+    <div class="img btn input--file">
+      <span class="btn1">
+        <i style="background-color: transparent" class="bi bi-camera-fill" (click)="fileUpload.click()"></i>
+        <input
+          accept="image/*"
+          (change)="onFileSelected(fileUpload)"
+          name="Select File"
+          type="file"
+          #fileUpload
+        />
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <div class="form-validation">
+        <form class="form-valide" [formGroup]="editForm">
+          <div class="form-row">
+            <div class="col-sm-7 mx-auto">
+              <mat-form-field
+                class="example-full-width"
+                [style.width.%]="100"
+                appearance="fill"
+              >
+                <mat-label>Nom</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="nom"
+                  formControlName="firstName"
+                />
+                <mat-error
+                  *ngIf="
+                    this.editForm.controls['firstName'].hasError('pattern')
+                  "
+                >
+                  Entrer votre nom
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    this.editForm.controls['firstName'].hasError('required')
+                  "
+                >
+                  Entrer votre nom
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-7 mx-auto">
+              <mat-form-field
+                class="example-full-width"
+                [style.width.%]="100"
+                appearance="fill"
+              >
+                <mat-label>Prénom</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="nom"
+                  formControlName="lastName"
+                />
+                <mat-error
+                  *ngIf="this.editForm.controls['lastName'].hasError('pattern')"
+                >
+                  Entrer votre prénom
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    this.editForm.controls['lastName'].hasError('required')
+                  "
+                >
+                  Entrer votre prénom
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-7 mx-auto">
+              <mat-form-field
+                class="example-full-width"
+                [style.width.%]="100"
+                appearance="fill"
+              >
+                <mat-label>Email</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  disabled
+                  value="{{ user.email }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-7 mx-auto">
+              <mat-form-field
+                class="example-full-width"
+                [style.width.%]="100"
+                appearance="fill"
+              >
+                <mat-label>Téléphone</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="+216 -- --- ---"
+                  formControlName="phone"
+                />
+                <mat-error
+                  *ngIf="this.editForm.controls['phone'].hasError('pattern')"
+                >
+                  Entrer un téléphone valide
+                </mat-error>
+                <mat-error
+                  *ngIf="this.editForm.controls['phone'].hasError('required')"
+                >
+                  Entrer un téléphone valide
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row" style="padding-bottom: 1em">
+            <div class="col-sm-7 mx-auto">
+              <mat-form-field
+                class="example-full-width"
+                [style.width.%]="100"
+                appearance="fill"
+              >
+                <mat-label>Linkedin</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="Linkedin "
+                  formControlName="linkedin"
+                />
+                <mat-error
+                  *ngIf="this.editForm.controls['linkedin'].hasError('pattern')"
+                >
+                  Entrer votre linkedin
+                </mat-error>
+                <mat-error
+                  *ngIf="
+                    this.editForm.controls['linkedin'].hasError('required')
+                  "
+                >
+                  Entrer une adresse valide
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-lg-4 mx-auto">
+            <div class="card-body">
+              <button
+                type="button"
+                class="btn2 button_cancel"
+                style="
+                  background: rgba(176, 175, 175, 0.651);
+                  color: white;
+                  border-color: rgba(150, 146, 146, 0.534);
+                  width: 150px;
+                "
+                (click)="cancel()"
+              >
+                Annuler
+              </button>
+
+              <button
+                type="submit"
+                class="btn2 button_submit"
+                style="
+                  background-color: #006dbf;
+                  color: white;
+                  width: 150px;
+                  border-color: rgba(150, 146, 146, 0.534);
+                "
+                (click)="updateProfile()"
+                [disabled]="editForm.invalid"
+              >
+                Soumettre
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

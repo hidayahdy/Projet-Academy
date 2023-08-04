@@ -1,0 +1,81 @@
+<div id="cooptation_container">
+  <div class="container-fluid">
+    <div class="cooptationsBar">
+      <h4 style="color: aliceblue; font-size: 20px">
+        DÉPOSER VOTRE CANDIDATURE
+      </h4>
+    </div>
+  </div>
+  <div id="admin_container">
+    <div class="col-sm-6 p-md-0">
+      <div class="welcome" style="margin-left: 50px"></div>
+    </div>
+  </div>
+  <mat-tab-group dynamicHeight mat-align-tabs="center">
+    <mat-tab label="Profil">
+      <app-form-identity [angForm]="firstForm">
+        <ng-template mat-tab-label>
+          <h5 style="font-size: 16px">Profil</h5>
+          <i
+            *ngIf="firstForm.invalid && saveClicked"
+            class="bi bi-exclamation-circle-fill"
+            style="color: red; font-size: medium"
+          ></i>
+        </ng-template>
+      </app-form-identity>
+    </mat-tab>
+    <mat-tab label="Formation et Expériences">
+      <app-form-formation
+        [angForm]="secondForm"
+        (newItemEvent)="getUplodedFile($event)"
+      >
+        <ng-template mat-tab-label>
+          <h5 style="font-size: 16px">Formation et Expériences</h5>
+          <i
+            *ngIf="secondForm.invalid && saveClicked"
+            class="bi bi-exclamation-circle-fill"
+            style="color: red; font-size: medium"
+          ></i>
+        </ng-template>
+      </app-form-formation>
+    </mat-tab>
+    <mat-tab label="Mon Choix">
+      <app-form-choix [angForm]="thirdForm">
+        <ng-template mat-tab-label>
+          <h5 style="font-size: 16px">Choix</h5>
+          <i
+            *ngIf="thirdForm.invalid && saveClicked"
+            class="bi bi-exclamation-circle-fill"
+            style="color: red; font-size: medium"
+          ></i>
+        </ng-template>
+      </app-form-choix>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<div class="col-lx-6">
+  <div class="card-body">
+    <button
+      type="button"
+      class="btn"
+      style="
+        background: rgba(176, 175, 175, 0.651);
+        color: white;
+        border-color: rgba(150, 146, 146, 0.534);
+        width: 150px;
+      "
+      (click)="onClickCancel()"
+    >
+      Annuler
+    </button>
+
+    <button
+      type="button"
+      class="btn"
+      style="background-color: #006dbf; color: white; width: 150px"
+      (click)="onClicksave()"
+    >
+      Soumettre
+    </button>
+  </div>
+</div>

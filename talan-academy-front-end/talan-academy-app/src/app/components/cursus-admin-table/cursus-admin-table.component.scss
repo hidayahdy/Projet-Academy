@@ -1,0 +1,69 @@
+.mat-table {
+  width: 100%;
+}
+
+.mat-cell {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.mat-header-cell{
+  font-weight: 800;
+  color: #000;
+  font-size: 0.8rem;
+}
+.mat-column-name {
+  max-width: 20%;
+}
+
+.mat-column-description {
+  max-width: 40vw !important;
+  min-width: 30vw !important;
+  word-wrap: break-word;
+  padding-inline: 2% !important;  
+}
+
+.mat-column-actions {
+  width: 10vw;
+}
+// .action-header {
+//   text-align: center !important;
+// }
+.picture-cursus {
+  max-width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 50%;
+}
+// .visible-icon {
+//   margin-right: 5px !important;
+// }
+// .update-btn {
+//   margin-inline: 10px !important;
+//   color: #fff !important;
+//   background-color: rgb(84, 184, 255);
+// }
+.delete-btn {
+  margin-right: 50px !important;
+  color: rgb(255, 0, 0) !important;
+  background-color: #fff;
+  margin-left: 5%;
+}
+.mat-icon {
+  cursor: pointer;
+}
+
+.visible-icon {
+  color: #006dbf;
+  border: none;
+}
+.add-cursus-icon {
+  height: 42.5px;
+  width: 42.5px;
+  font-size: 42.5px;
+  cursor: pointer;
+  color: #006dbf;
+  border-radius: 0;
+  border: none;
+  margin: 0.25rem;
+}

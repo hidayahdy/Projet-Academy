@@ -1,0 +1,184 @@
+<div class="container-xxl">
+  <div class="container-fluid">
+    <div fxFlex="0 0 100%" fxLayout="column" fxLayoutAlign="start stretch">
+      <div class="row px-4 mx-1">
+        <div class="col-12 mx-auto cursus-title-page mt-3">
+          <h2>Liste des candidatures</h2>
+        </div>
+      </div>
+
+      <div class="ml-5 mt-3 w-50">
+        <mat-form-field>
+          <mat-label>Rechercher</mat-label>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="filterValue"
+            (input)="findByField(filterValue)"
+          />
+        </mat-form-field>
+      </div>
+
+      <mat-sidenav-container fxFlex="0 1 auto">
+        <mat-sidenav-content
+          style="margin-left: 2.8em; margin-right: 2.8em !important"
+        >
+          <div class="mat-elevation-z8" *ngIf="dataSource">
+            <div class="table-container">
+              <table mat-table [dataSource]="dataSource.content">
+                <ng-container matColumnDef="user">
+                  <th
+                    *matHeaderCellDef
+                    class="table-column-100"
+                    style="margin-left: 20px"
+                  >
+                    Candidat
+                  </th>
+                  <td *matCellDef="let element" class="table-column-100">
+                    <span>
+                      {{ element.user.firstName | titlecase }}
+                      {{ element.user.lastName | uppercase }}</span
+                    >
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                  <th *matHeaderCellDef class="table-column-40">Date</th>
+                  <td
+                    *matCellDef="let element"
+                    class="table-column-40"
+                    style="margin-left: 15px"
+                  >
+                    {{ element.creationDate | date : " dd/MM/YY " }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <th *matHeaderCellDef class="table-column-100">Statut</th>
+                  <td *matCellDef="let element" class="table-column-100">
+                    <span *ngIf="element.status == 'CANCELLED'">
+                      <mat-icon style="color: orange">circle</mat-icon>
+                      Annulée</span
+                    >
+                    <span *ngIf="element.status == 'ACCEPTED'">
+                      <mat-icon style="color: green">circle</mat-icon>
+                      Acceptée</span
+                    >
+                    <span *ngIf="element.status == 'ABANDONED'">
+                      <mat-icon style="color: red">circle</mat-icon>
+                      Abandon</span
+                    >
+                    <span *ngIf="element.status == 'WITHDRAWAL'">
+                      <mat-icon style="color: red">circle</mat-icon>
+                      Désistement</span
+                    >
+                    <span *ngIf="element.status == 'REFUSED'">
+                      <mat-icon style="color: red">circle</mat-icon>
+                      Refusée</span
+                    >
+
+                    <span *ngIf="element.status == 'INPROGRESS'">
+                      <mat-icon style="color: blue">circle</mat-icon> En cours
+                      d'étude</span
+                    >
+                    <span *ngIf="element.status == 'NEW'">
+                      <mat-icon style="color: blue">circle</mat-icon> A
+                      traiter</span
+                    >
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="diplome">
+                  <th *matHeaderCellDef class="table-column-100">Diplôme</th>
+                  <td *matCellDef="let element" class="table-column-100">
+                    <span *ngIf="element.diploma == 'OTHER'"
+                      >Autre diplôme</span
+                    >
+                    <span *ngIf="element.diploma == 'ENGINEER'">Ingénieur</span>
+                    <span *ngIf="element.diploma == 'DOCTORATE'">Doctorat</span>
+
+                    <span *ngIf="element.speciality == 'ELECTRIQUE'">
+                      en génie electrique</span
+                    >
+                    <span *ngIf="element.speciality == 'HYDRAULICS'">
+                      en génie hydraulique</span
+                    >
+                    <span *ngIf="element.speciality == 'CIVIL'">
+                      en génie civil</span
+                    >
+                    <span *ngIf="element.speciality == 'ENERGY'">
+                      en génie energetique</span
+                    >
+                    <span *ngIf="element.speciality == 'ARCHITECTURE'">
+                      en architecture</span
+                    >
+                    <span *ngIf="element.speciality == 'AUTOMATIC'">
+                      en génie automatique</span
+                    >
+                    <span *ngIf="element.speciality == 'MECHANICAL'">
+                      en génie mécanique</span
+                    >
+                    <span *ngIf="element.speciality == 'OTHER'"
+                      >, autre spécialité</span
+                    >
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="session">
+                  <th *matHeaderCellDef class="table-column-70">Cursus</th>
+                  <td *matCellDef="let element" class="table-column-70">
+                    {{ element.session.cursus.name }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                  <th *matHeaderCellDef class="table-column-60">Actions</th>
+                  <td *matCellDef="let element" class="table-column-60">
+                    <mat-icon
+                      style="color: green"
+                      *ngIf="element.status == 'NEW'"
+                      (click)="checkApp(element)"
+                      >check_circle</mat-icon
+                    >
+                    <mat-icon
+                      style="color: red"
+                      *ngIf="element.status == 'NEW'"
+                      (click)="cancelApp(element)"
+                      >cancel</mat-icon
+                    >
+
+                    <mat-icon
+                      class="viewCV"
+                      (click)="downloadPDF($event, element.cv)"
+                      >download</mat-icon
+                    >
+                    <mat-icon class="viewInfo" (click)="openDialog(element)"
+                      >info</mat-icon
+                    >
+                  </td>
+                </ng-container>
+
+                <mat-header-row
+                  *matHeaderRowDef="displayedColumns"
+                ></mat-header-row>
+                <mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></mat-row>
+              </table>
+
+              <mat-paginator
+                *ngIf="dataSource"
+                [length]="dataSource.totalElements"
+                [pageSize]="dataSource.size"
+                (page)="pageEvent = $event; onPaginateChange($event)"
+                [pageSizeOptions]="[2, 5, 10, 15]"
+                showFirstLastButtons
+              >
+              </mat-paginator>
+            </div>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>
+  </div>
+</div>
+<div>{{ file }}</div>

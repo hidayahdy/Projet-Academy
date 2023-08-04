@@ -1,0 +1,169 @@
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: #006dbf !important;
+}
+#cooptation_container {
+  margin: 60px auto 0px;
+  border: 1px rgb(221, 221, 221) solid;
+  width: 86%;
+}
+.cooptationsBar {
+  background: #006dbf;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: aliceblue;
+  align-items: left;
+  justify-content: left;
+  padding-left: 35px;
+}
+h4 {
+  align-self: center;
+}
+.container-fluid {
+  padding-left: 0%;
+  padding-right: 0%;
+}
+.card-body {
+  padding: 10px 50px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+  gap: 4%;
+  width: 45%;
+}
+
+.btn {
+  height: 50px;
+  width: 300px;
+}
+
+#admin_container {
+  padding: 20px 0 20px;
+  text-align: flex-start;
+  justify-content: flex-start;
+  display: flex;
+  gap: 30px;
+  margin-left: 15px;
+}
+
+#admin_container input {
+  width: 20%;
+  align-self: baseline;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-color: rgb(158, 157, 157);
+  border-width: 0.5px;
+}
+
+#admin_container input:focus {
+  outline: none;
+}
+
+#admin_container h6 {
+  font-size: 0.6em;
+  color: rgb(158, 157, 157);
+}
+
+#icons_container {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 110px;
+}
+
+#icons_container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  margin: auto;
+  position: relative;
+  color: #006dbf;
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #006dbf;
+  border-radius: 50%;
+}
+
+#icons_container .icon i {
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#icons_container .titles {
+  color: #006dbf;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.activeIcon {
+  color: white !important;
+  background-color: #006dbf !important;
+}
+
+#hr1 {
+  width: 93%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#hr2 {
+  width: 97%;
+  margin: auto;
+  border-top: 3px solid rgb(95, 95, 95);
+}
+ng-template {
+  position: relative;
+}
+.bi {
+  position: absolute;
+  top: -6px;
+  right: -9px;
+  padding: 5px 10px;
+}
+@media screen and (max-width: 1024px) {
+  #admin_container h5 {
+    font-size: 0.9em;
+  }
+  #admin_container h6 {
+    font-size: 0.7em;
+  }
+  #cooptation_container {
+    margin-top: 110px;
+    width: 95.5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #admin_container h5 {
+    font-size: 0.8em;
+  }
+  #admin_container h6 {
+    font-size: 0.6em;
+  }
+  #cooptation_container {
+    width: 95.5%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #admin_container h5 {
+    font-size: 0.6em;
+  }
+  #admin_container h6 {
+    font-size: 0.5em;
+  }
+  #admin_container input {
+    width: 30%;
+  }
+  #cooptation_container {
+    width: 95.5%;
+  }
+}

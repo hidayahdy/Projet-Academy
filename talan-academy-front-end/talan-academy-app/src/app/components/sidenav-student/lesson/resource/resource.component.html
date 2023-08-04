@@ -1,0 +1,6 @@
+<h2>Voilà les références théoriques du jour :</h2>
+<mat-selection-list #shoes [multiple]="false">
+  <mat-list-option *ngFor="let shoe of resource" [value]="shoe">
+    <a href="{{ shoe.link }}" target="_blank">{{ shoe.name }} </a>
+  </mat-list-option>
+</mat-selection-list>

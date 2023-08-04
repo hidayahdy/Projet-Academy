@@ -1,0 +1,160 @@
+.motivation {
+  width: 60%;
+  margin-left: 200px;
+}
+
+.form-group {
+  height: 100px;
+}
+
+.form-group {
+  margin-bottom: 0rem !important;
+}
+
+#first {
+  margin-left: 130px !important;
+}
+.second {
+  margin-left: 30px !important;
+}
+.third {
+  position: absolute;
+  margin-left: 50px !important;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 80%;
+}
+.button-margin {
+  margin-left: 150px !important;
+}
+@media screen and (max-width: 1100px) {
+  .Nom {
+    margin-top: 1rem !important;
+  }
+
+  .labelCv {
+    padding-left: 5rem;
+    align-self: 3 flex-end;
+    max-width: 10px;
+  }
+  .cvFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: -150px;
+  }
+  mat-form-field {
+    width: 90% !important;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  .motivation {
+    margin-left: 15px;
+  }
+  .button-margin {
+    margin-left: 50px !important;
+  }
+  #first {
+    margin-left: 10px !important;
+  }
+  .second {
+    margin-left: 10px !important;
+  }
+  .third {
+    margin-left: 10px !important;
+  }
+}
+@media screen and (max-width: 950px) {
+  .example-margin {
+    display: flex;
+    flex-direction: column;
+  }
+  .third {
+    position: relative;
+  }
+}
+@media screen and (max-width: 768px) {
+  .labelCv {
+    padding-left: 5rem;
+    align-self: flex-end;
+    max-width: 10px;
+  }
+  .third {
+    position: relative;
+  }
+  .cvFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: -150px;
+  }
+  mat-form-field {
+    width: 90% !important;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  .example-margin {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .example-section {
+    margin-top: 15px;
+    margin-left: -2px;
+  }
+  .motivation {
+    margin-left: 15px;
+  }
+  .button-margin {
+    margin-left: 7px !important;
+  }
+}
+
+.sdForm {
+  margin-top: 1rem;
+}
+@media screen and (max-width: 425px) {
+  .labelCv {
+    padding-left: 5rem;
+    align-self: flex-end;
+    max-width: 10px;
+  }
+  .cvFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: -150px;
+  }
+  mat-form-field {
+    width: 90% !important;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  .example-margin,
+  .example-margin2,
+  .example-margin3 {
+    margin: 0 10px;
+  }
+  .example-section {
+    margin-top: 15px;
+    margin-left: -2px;
+  }
+  .button-margin {
+    margin-left: 5px !important;
+  }
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
+.example-section {
+  margin-top: 15px;
+  margin-left: -2px;
+}
+
+.mat-radio-button {
+  margin: 0 7px;
+}

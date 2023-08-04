@@ -1,0 +1,54 @@
+<h1>Détails de la candidature</h1>
+
+<mat-dialog-content class="mat-typography">
+  <h2>
+    Diplôme :
+    <span *ngIf="application.diploma == 'OTHER'">Autre diplome</span>
+    <span *ngIf="application.diploma == 'ENGINEER'">Ingénieur</span>
+    <span *ngIf="application.diploma == 'DOCTORATE'">Doctorat</span>
+    <span *ngIf="application.speciality == 'ELECTRIQUE'">
+      en génie electrique</span
+    >
+    <span *ngIf="application.speciality == 'HYDRAULICS'">
+      en génie hydraulique</span
+    >
+    <span *ngIf="application.speciality == 'CIVIL'"> en génie civil</span>
+    <span *ngIf="application.speciality == 'ENERGY'">
+      en génie energetique</span
+    >
+    <span *ngIf="application.speciality == 'ARCHITECTURE'">
+      en architecture</span
+    >
+    <span *ngIf="application.speciality == 'AUTOMATIC'">
+      en génie automatique</span
+    >
+    <span *ngIf="application.speciality == 'MECHANICAL'">
+      en génie mécanique</span
+    >
+    <span *ngIf="application.speciality == 'OTHER'">, autre spécialité</span>
+  </h2>
+
+  <h2>
+    Expérience :
+    <span>{{ application.experience }} ans</span>
+  </h2>
+  <h2 *ngIf="application.itKnowledge == true">
+    Connaissances IT : <span>Oui</span>
+  </h2>
+  <h2 *ngIf="application.itKnowledge == false">
+    Connaissances IT : <span>Non</span>
+  </h2>
+  <h2 *ngIf="application.situation == 'SITUATION_WORKER'">
+    Situation professionnelle : <span>Employé(e)</span>
+  </h2>
+  <h2 *ngIf="application.situation == 'SITUATION_SEARCHING'">
+    Situation professionnelle : <span>A la recherche d'emploi</span>
+  </h2>
+
+  <h2>
+    Motivation : <span>{{ application.motivation }}</span>
+  </h2>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" mat-dialog-close>Fermer</button>
+</mat-dialog-actions>

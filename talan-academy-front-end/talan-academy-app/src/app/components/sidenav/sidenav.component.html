@@ -1,0 +1,42 @@
+<ng-container>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      closed
+      class="example-sidenav"
+      [fixedInViewport]="options.value.fixed"
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="false"
+      fixedTopGap="56"
+    >
+      <a [routerLink]="['/admin/cursus']" *ngIf="role === 'ROLE_ADMIN'"
+        >Cursus</a
+      >
+      <a [routerLink]="['/admin/sessions']" *ngIf="role === 'ROLE_ADMIN'"
+        >Sessions</a
+      >
+      <a
+        [routerLink]="['/candidat/applications']"
+        *ngIf="role === 'ROLE_REGISTRED'"
+        >Mes Candidatures</a
+      >
+      <a *ngIf="role === 'ROLE_REGISTRED'">Ajouter une Candidature</a>
+      <a [routerLink]="['/apprenti/cursus/1']" *ngIf="role === 'ROLE_STUDENT'"
+        >Mes Cours</a
+      >
+      <a [routerLink]="['/admin/applications']" *ngIf="role === 'ROLE_ADMIN'"
+        >Candidatures</a
+      >
+    </mat-sidenav>
+
+    <mat-sidenav-content [formGroup]="options">
+      <app-navbar-section
+        (sidenavToggle)="sidenav.toggle()"
+      ></app-navbar-section>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

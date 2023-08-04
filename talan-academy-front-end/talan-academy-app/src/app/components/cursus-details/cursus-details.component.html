@@ -1,0 +1,19 @@
+<div class="cursus-detail">
+  <div *ngIf="cursus" class="details">
+    <img
+      src="http://localhost:8080/talan/cursus/image?pictureName={{
+        cursus.picture
+      }}"
+      alt=""
+    />
+    <h1 class="name">{{ cursus.name | titlecase }}</h1>
+    <p class="description">{{ cursus.description }}</p>
+    <h2 style="color: rgb(51, 113, 185)">Mots clés:</h2>
+    <div class="mots">
+      <div class="tags mt-1" *ngFor="let key of cursus.keyWords">
+        {{ key | titlecase }}
+      </div>
+    </div>
+    <button mat-raised-button routerLink="/register">Postuler</button>
+  </div>
+</div>

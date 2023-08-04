@@ -1,0 +1,88 @@
+<mat-toolbar color="gray" class="example-header">
+  <div style="width: 17%; margin-left: -21px" (click)="redirection()">
+    <div class="div_img"></div>
+  </div>
+  <button mat-icon-button (click)="onToggleSidenav()" *ngIf="show">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div fxShow="true" fxHide.lt-md>
+    <div class="menu">
+      <a
+        [routerLink]="['/admin/cursus']"
+        mat-button
+        *ngIf="role === 'ROLE_ADMIN'"
+        >Cursus</a
+      >
+      <a
+        [routerLink]="['/admin/sessions']"
+        mat-button
+        *ngIf="role === 'ROLE_ADMIN'"
+        >Sessions</a
+      >
+      <a
+        [routerLink]="['/candidat/applications']"
+        mat-button
+        *ngIf="role === 'ROLE_REGISTRED'"
+        >Mes Candidatures</a
+      >
+      <a
+        mat-button
+        *ngIf="role === 'ROLE_REGISTRED'"
+        (click)="verifStatutRegistred()"
+        >Ajouter une Candidature</a
+      >
+      <button
+        (click)="verifStartLesson()"
+        mat-button
+        *ngIf="role === 'ROLE_STUDENT'"
+      >
+        Mes Cours
+      </button>
+      <a
+        [routerLink]="['/admin/applications']"
+        mat-button
+        *ngIf="role === 'ROLE_ADMIN'"
+        >Candidatures</a
+      >
+      <a
+        [routerLink]="['/admin/utilisateurs']"
+        mat-button
+        *ngIf="role === 'ROLE_ADMIN'"
+        >Utilisateurs</a
+      >
+      <a
+        [routerLink]="['/admin/mentors']"
+        mat-button
+        *ngIf="role === 'ROLE_ADMIN'"
+        >Mentors</a
+      >
+    </div>
+  </div>
+  <div
+    *ngIf="
+      role === 'ROLE_STUDENT' ||
+      role === 'ROLE_ADMIN' ||
+      role === 'ROLE_REGISTRED'
+    "
+    class="menu-item"
+  >
+    <button
+      mat-mini-fab
+      color="primary"
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon button with a menu icon"
+    >
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dashboard</mat-icon>
+        <span><a [routerLink]="['/candidat/profil/' + id]">Mon Profil</a></span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>close</mat-icon>
+        <span>Déconnexion</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

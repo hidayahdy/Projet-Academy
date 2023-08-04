@@ -1,0 +1,37 @@
+.title-form{
+  color: #006dbf
+}
+.example-form {
+  width: 30vw;
+}
+.example-full-width {
+  width: 100%;
+}
+.mat-icon {
+  color: #006dbf !important;
+}
+.btn-add{
+  color: #fff;
+  background-color: #006dbf !important;
+}
+.image-label{
+  font-size: 0.9rem !important;
+  color: rgb(130, 130, 130);
+}
+@media only screen and (max-width: 1200px) {
+  .example-form {
+    width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .example-form {
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .example-form {
+    max-width: 70vw;
+  }
+}

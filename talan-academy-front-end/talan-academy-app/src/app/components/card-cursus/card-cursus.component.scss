@@ -1,0 +1,68 @@
+.mat-card {
+  padding: 3.5%;
+}
+
+mat-card-title {
+  margin-bottom: 35px;
+}
+.mat-flat-button {
+  background-color: transparent;
+  color: blue;
+}
+.mat-card-content {
+  margin-top: 5%;
+  margin-bottom: 15%;
+}
+.mat-card-actions {
+  position: absolute;
+  bottom: 10%;
+}
+// .tags{
+//   border: 1px solid lightgrey;
+//   border-radius: 5%;
+//   padding: 1% 7.5%;
+//   background-color: #fff;
+
+// }
+
+.tags {
+  position: relative;
+  display: inline-block;
+  border-radius: 6px;
+  clip-path: polygon(20px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 20px);
+  background-color: rgb(227, 225, 225);
+  padding: 9px 22px;
+
+  margin-bottom: 50px;
+  margin: 0 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  transition: clip-path 500ms;
+}
+
+.tags:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: rgb(167, 167, 167);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 6px 0;
+  transition: transform 500ms;
+}
+
+.tags:hover {
+  clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 0px);
+}
+
+.tags:hover:after {
+  transform: translate(-100%, -100%);
+}
+.cursus-description {
+  margin-bottom: 20px;
+  font-weight: 550;
+  font-size: medium;
+}
